@@ -10,7 +10,7 @@
 
 | Element | Wartość |
 |---|---|
-| Wazuh Manager | 48.209.8.17 |
+| Wazuh Manager | 10.0.0.5 |
 | Agent Ubuntu | Dave (ID 013), Ubuntu 24.04.3 LTS, IP 192.168.1.36 |
 | Agent Windows | winDave, Windows 11 |
 | Agent referencyjny | PrzemyslawK (ID 001) – analizowany w zadaniach |
@@ -46,7 +46,7 @@ Po `apt update` pobrano 67,2 kB metadanych paczek, w tym nowe wpisy z repozytori
 ### Krok 3 – Instalacja agenta
 
 ```bash
-WAZUH_MANAGER='48.209.8.17' WAZUH_AGENT_NAME='Dave' apt install wazuh-agent
+WAZUH_MANAGER='10.0.0.5' WAZUH_AGENT_NAME='Dave' apt install wazuh-agent
 ```
 
 Wynik: pobranie 13,1 MB archiwum, instalacja 48,5 MB na dysku, zakończona sukcesem.
@@ -200,7 +200,7 @@ Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.14.2
 
 # Cicha instalacja z podłączeniem do managera
 msiexec.exe /i $env:tmp\wazuh-agent /q `
-  WAZUH_MANAGER='48.209.8.17' `
+  WAZUH_MANAGER='10.0.0.5' `
   WAZUH_AGENT_NAME='winDave'
 
 # Uruchomienie usługi
@@ -211,7 +211,7 @@ Wynik: "The Wazuh service was started successfully."
 
 **Weryfikacja połączenia** (ossec.log):
 ```
-wazuh-agent INFO (4102): Connected to the server [48.209.8.27]:1514/tcp
+wazuh-agent INFO (4102): Connected to the server [10.0.0.5]:1514/tcp
 wazuh-agent INFO: Agent is now online
 sca: INFO: Evaluation finished for policy CIS Win11 Enterprise
 wazuh-agent INFO (6012): Real-time file integrity monitoring started
